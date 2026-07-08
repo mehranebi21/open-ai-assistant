@@ -1,41 +1,25 @@
-.message{
+body{
 
-animation: fade .3s ease;
+  margin:0;
 
-}
+  font-family:Arial, sans-serif;
 
+  background:#111;
 
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(10px);
+  color:white;
 
 }
 
 
-to{
+div{
 
-opacity:1;
-
-transform:translateY(0);
-
-}
+  padding:20px;
 
 }
 
 
-.ai{
+h1{
 
-border-left:4px solid #10a37f;
-
-}
-
-
-.user{
-
-border-left:4px solid #2563eb;
+  color:#10a37f;
 
 }
