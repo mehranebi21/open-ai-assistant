@@ -1,5 +1,6 @@
 import {useState} from "react";
 import Message from "./Message.jsx";
+import {askAI} from "./api.js";
 
 
 export default function ChatBox(){
@@ -10,31 +11,55 @@ const [input,setInput]=useState("");
 const [messages,setMessages]=useState([]);
 
 
-
-function send(){
+async function send(){
 
 
 if(!input.trim()) return;
 
 
-setMessages([
+const question=input;
 
-...messages,
 
+setMessages(prev=>[
+...prev,
 {
 role:"user",
-content:input
-},
-
-{
-role:"ai",
-content:"سلام 👋 من دستیار هوش مصنوعی شما هستم."
+content:question
 }
-
 ]);
 
 
 setInput("");
+
+
+setMessages(prev=>[
+...prev,
+{
+role:"ai",
+content:"در حال فکر کردن..."
+}
+]);
+
+
+const answer=await askAI(question);
+
+
+setMessages(prev=>{
+
+let copy=[...prev];
+
+copy[copy.length-1]={
+
+role:"ai",
+
+content:answer
+
+};
+
+return copy;
+
+});
+
 
 }
 
@@ -63,9 +88,7 @@ data={m}
 </div>
 
 
-
 <div className="input">
-
 
 <input
 
@@ -82,15 +105,13 @@ send()
 }
 }
 
-placeholder="پیام خود را بنویسید..."
+placeholder="سوال خود را بنویس..."
 
-/>
+ />
 
 
 <button onClick={send}>
-
 ارسال
-
 </button>
 
 
