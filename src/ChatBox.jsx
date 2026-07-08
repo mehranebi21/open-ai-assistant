@@ -1,65 +1,40 @@
 import {useState} from "react";
-
-import Message from "./Message";
-
-import {askAI} from "./api";
-
+import Message from "./Message.jsx";
 
 
 export default function ChatBox(){
 
 
-const [text,setText]=useState("");
+const [input,setInput]=useState("");
 
 const [messages,setMessages]=useState([]);
 
 
 
-async function send(){
+function send(){
 
 
-if(!text)return;
+if(!input.trim()) return;
 
 
+setMessages([
 
-let user={
+...messages,
 
+{
 role:"user",
-content:text
+content:input
+},
 
-};
-
-
-
-setMessages(
-prev=>[
-...prev,
-user
-]
-);
-
-
-
-setText("");
-
-
-
-let answer=
-await askAI(text);
-
-
-
-setMessages(
-prev=>[
-...prev,
 {
 role:"ai",
-content:answer
+content:"سلام 👋 من دستیار هوش مصنوعی شما هستم."
 }
-]
-);
+
+]);
 
 
+setInput("");
 
 }
 
@@ -67,29 +42,25 @@ content:answer
 
 return (
 
-<div className="box">
+<div className="chat">
 
 
 <div className="messages">
 
-
 {
 
-messages.map(
-(m,i)=>
+messages.map((m,i)=>(
 
 <Message
 key={i}
 data={m}
 />
 
-)
+))
 
 }
 
-
 </div>
-
 
 
 
@@ -98,10 +69,10 @@ data={m}
 
 <input
 
-value={text}
+value={input}
 
 onChange={
-e=>setText(e.target.value)
+e=>setInput(e.target.value)
 }
 
 onKeyDown={
@@ -111,18 +82,14 @@ send()
 }
 }
 
-
-placeholder=
-"Ask anything..."
+placeholder="پیام خود را بنویسید..."
 
 />
 
 
-<button
-onClick={send}
->
+<button onClick={send}>
 
-Send
+ارسال
 
 </button>
 
@@ -132,8 +99,7 @@ Send
 
 </div>
 
-
-)
+);
 
 
 }
