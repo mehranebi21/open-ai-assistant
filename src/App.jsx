@@ -1,52 +1,19 @@
-import {useState} from "react";
-
-import ChatBox from "./ChatBox";
-
-
 export default function App(){
 
+  return (
 
-const [dark,setDark]=useState(true);
+    <div>
 
+      <h1>
+        🤖 Open AI Assistant
+      </h1>
 
-return (
+      <p>
+        Website is running successfully
+      </p>
 
-<div
-className={
-dark ? "app dark":"app"
-}>
+    </div>
 
-
-<header>
-
-
-<h1>
-🤖 Open AI Assistant
-</h1>
-
-
-<button
-onClick={()=>
-setDark(!dark)
-}>
-
-{
-dark ? "☀️":"🌙"
-}
-
-</button>
-
-
-</header>
-
-
-
-<ChatBox/>
-
-
-</div>
-
-);
-
+  );
 
 }
