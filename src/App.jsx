@@ -1,19 +1,43 @@
+import { useState } from "react";
+import ChatBox from "./ChatBox.jsx";
+
+
 export default function App(){
 
-  return (
+const [dark,setDark]=useState(true);
 
-    <div>
 
-      <h1>
-        🤖 Open AI Assistant
-      </h1>
+return (
 
-      <p>
-        Website is running successfully
-      </p>
+<div className={dark ? "app dark" : "app"}>
 
-    </div>
 
-  );
+<header className="header">
+
+<h1>
+🤖 Open AI Assistant
+</h1>
+
+
+<button
+onClick={()=>setDark(!dark)}
+>
+
+{
+dark ? "☀️ روشن" : "🌙 تاریک"
+}
+
+</button>
+
+
+</header>
+
+
+<ChatBox />
+
+
+</div>
+
+);
 
 }
