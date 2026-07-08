@@ -1,0 +1,17 @@
+{
+  "name": "open-ai-assistant",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-markdown": "latest",
+    "react-syntax-highlighter": "latest"
+  },
+  "devDependencies": {}
+}
