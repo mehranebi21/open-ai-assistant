@@ -1,25 +1,136 @@
 body{
 
-  margin:0;
+margin:0;
 
-  font-family:Arial, sans-serif;
-
-  background:#111;
-
-  color:white;
+font-family:Arial;
 
 }
 
 
-div{
 
-  padding:20px;
+.app{
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
 
 }
 
 
-h1{
+.dark{
 
-  color:#10a37f;
+background:#111;
+
+color:white;
+
+}
+
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:15px;
+
+}
+
+
+
+button{
+
+padding:10px 15px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+
+
+.chat{
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+
+
+.messages{
+
+flex:1;
+
+overflow:auto;
+
+padding:20px;
+
+}
+
+
+
+.message{
+
+max-width:70%;
+
+padding:12px;
+
+margin:10px;
+
+border-radius:12px;
+
+}
+
+
+
+.user{
+
+background:#2563eb;
+
+margin-left:auto;
+
+}
+
+
+.ai{
+
+background:#333;
+
+margin-right:auto;
+
+}
+
+
+
+.input{
+
+display:flex;
+
+padding:15px;
+
+gap:10px;
+
+}
+
+
+
+input{
+
+flex:1;
+
+padding:15px;
+
+font-size:16px;
+
+border-radius:10px;
 
 }
