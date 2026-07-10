@@ -1,4 +1,4 @@
-const API_KEY = "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";
+const API_KEY = "https://openrouter-chat.milad22g2.workers.dev/";
 
 
 export async function askAI(message){
@@ -6,7 +6,7 @@ export async function askAI(message){
 try {
 
 const response = await fetch(
-"https://openrouter.ai/api/v1/chat/completions",
+"https://openrouter-chat.milad22g2.workers.dev/",
 {
 
 method:"POST",
